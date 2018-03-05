@@ -13,7 +13,6 @@ import ARKit
 class ViewController: UIViewController, ARSCNViewDelegate {
     
     @IBOutlet var sceneView: ARSCNView!
-    var planeNodes:[PlaneNode] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,32 +87,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
      return node
      }
      */
-    
-    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        
-        DispatchQueue.main.async {
-            if let planeAnchor = anchor as? ARPlaneAnchor {
-                // 平面を表現するノードを追加する
-                let panelNode = PlaneNode(anchor: planeAnchor)
-                panelNode.isDisplay = true
-                //                panelNode.physicsBody = SCNPhysicsBody(type: .static, shape: nil)
-                //                panelNode.physicsBody?.categoryBitMask = 2
-                
-                node.addChildNode(panelNode)
-                self.planeNodes.append(panelNode)
-            }
-        }
-    }
-    
-    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-        
-        DispatchQueue.main.async {
-            if let planeAnchor = anchor as? ARPlaneAnchor, let planeNode = node.childNodes[0] as? PlaneNode {
-                // ノードの位置及び形状を修正する
-                planeNode.update(anchor: planeAnchor)
-            }
-        }
-    }
     
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user

@@ -14,8 +14,7 @@
 		B12E4AEB204DAB7A00B59979 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12E4AEA204DAB7A00B59979 /* Assets.xcassets */; };
 		B12E4AEE204DAB7A00B59979 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B12E4AEC204DAB7A00B59979 /* LaunchScreen.storyboard */; };
 		B12E4AF9204DAB7A00B59979 /* together_with_mudkipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12E4AF8204DAB7A00B59979 /* together_with_mudkipTests.swift */; };
-		B12E4B05204DABE500B59979 /* Mudkip.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12E4B03204DABE500B59979 /* Mudkip.swift */; };
-		B12E4B06204DABE500B59979 /* PlaneNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12E4B04204DABE500B59979 /* PlaneNode.swift */; };
+		B12E4B08204DB1C700B59979 /* Mudkip.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12E4B07204DB1C700B59979 /* Mudkip.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +39,7 @@
 		B12E4AF4204DAB7A00B59979 /* together-with-mudkipTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "together-with-mudkipTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12E4AF8204DAB7A00B59979 /* together_with_mudkipTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = together_with_mudkipTests.swift; sourceTree = "<group>"; };
 		B12E4AFA204DAB7A00B59979 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B12E4B03204DABE500B59979 /* Mudkip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Mudkip.swift; path = "../../together-with-mudkip-backup/together-with-mudkip/Mudkip.swift"; sourceTree = "<group>"; };
-		B12E4B04204DABE500B59979 /* PlaneNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaneNode.swift; path = "../../together-with-mudkip-backup/together-with-mudkip/PlaneNode.swift"; sourceTree = "<group>"; };
+		B12E4B07204DB1C700B59979 /* Mudkip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mudkip.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +84,7 @@
 				B12E4AE1204DAB7A00B59979 /* AppDelegate.swift */,
 				B12E4AE3204DAB7A00B59979 /* art.scnassets */,
 				B12E4AE5204DAB7A00B59979 /* ViewController.swift */,
-				B12E4B03204DABE500B59979 /* Mudkip.swift */,
-				B12E4B04204DABE500B59979 /* PlaneNode.swift */,
+				B12E4B07204DB1C700B59979 /* Mudkip.swift */,
 				B12E4AE7204DAB7A00B59979 /* Main.storyboard */,
 				B12E4AEA204DAB7A00B59979 /* Assets.xcassets */,
 				B12E4AEC204DAB7A00B59979 /* LaunchScreen.storyboard */,
@@ -209,8 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B12E4B06204DABE500B59979 /* PlaneNode.swift in Sources */,
-				B12E4B05204DABE500B59979 /* Mudkip.swift in Sources */,
+				B12E4B08204DB1C700B59979 /* Mudkip.swift in Sources */,
 				B12E4AE6204DAB7A00B59979 /* ViewController.swift in Sources */,
 				B12E4AE2204DAB7A00B59979 /* AppDelegate.swift in Sources */,
 			);
