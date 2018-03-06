@@ -20,8 +20,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Set the view's delegate
         sceneView.delegate = self
         
-        //        sceneView.debugOptions = ARSCNDebugOptions.showFeaturePoints
-        
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
         
@@ -31,26 +29,19 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         addTapGesture()
         
         //        // Create a new scene
-        let mudkipNode = Mudkip.create()
+        let mudkipNode = Mudkip().getNode()
         //        mudkipNode.physicsBody = SCNPhysicsBody(type: .dynamic, shape: nil)
         //        mudkipNode.physicsBody?.categoryBitMask = 1
         //        mudkipNode.physicsBody?.restitution = 0// 弾み具合　0:弾まない 3:弾みすぎ
         //        mudkipNode.physicsBody?.damping = 1  // 空気の摩擦抵抗 1でゆっくり落ちる
         sceneView.scene.rootNode.addChildNode(mudkipNode)
-        //
-        //        // Set the scene to the view
-        //        let mudkipScene = Mudkip.create()
-        //        sceneView.scene = mudkipScene
     }
     
     func addTapGesture() {
-        //        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
-        //        self.sceneView.addGestureRecognizer(tapRecognizer)
         let snapshotTap = UITapGestureRecognizer(target: self, action: #selector(self.saveImage(_:)))
         snapshotTap.numberOfTapsRequired = 2
         
         self.sceneView.addGestureRecognizer(snapshotTap)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,6 +51,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let configuration = ARWorldTrackingConfiguration()
         
         configuration.planeDetection = .horizontal
+//        configuration.isAutoFocusEnabled = true // or false
         
         // Run the view's session
         sceneView.session.run(configuration)
@@ -87,6 +79,31 @@ class ViewController: UIViewController, ARSCNViewDelegate {
      return node
      }
      */
+    
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        
+        guard let planeAnchor = anchor as? ARPlaneAnchor else { return  }
+        
+        // 平面ジオメトリ作成
+        let plane = SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z))
+        
+        // 平面ジオメトリをグリーンの半透明に
+        let planeMaterial = SCNMaterial()
+        planeMaterial.diffuse.contents = UIColor.green.withAlphaComponent(0.5)
+        plane.materials = [planeMaterial]
+        
+        // 平面ノード作成
+//        let planeNode = SCNNode(geometry: plane)
+//        planeNode.position = SCNVector3Make(planeAnchor.center.x, 0, planeAnchor.center.z)
+//        planeNode.transform =  SCNMatrix4MakeRotation(-Float.pi / 2, 1, 0, 0)
+//        node.addChildNode(planeNode)
+
+//        let mudkipMode = Mudkip().getNode()
+//        mudkipMode.position = SCNVector3Make(planeAnchor.center.x, 0, planeAnchor.center.z)
+//        mudkipMode.scale = SCNVector3(0.1, 0.1, 0.1)
+//        node.addChildNode(mudkipMode)
+        
+    }
     
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user

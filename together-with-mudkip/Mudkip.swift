@@ -11,9 +11,16 @@ import SceneKit
 import ARKit
 
 class Mudkip {
-    static func create() -> SCNNode {
-        let scene = SCNScene(named: "art.scnassets/Mudkip_OpenCollada.scn")!
-        let node = scene.rootNode.childNode(withName: "mudkip", recursively: true)
-        return node!
+    let scene: SCNScene
+    let node: SCNNode
+    
+    init() {
+        scene = SCNScene(named: "art.scnassets/Mudkip_OpenCollada.scn")!
+        node = scene.rootNode.childNode(withName: "mudkip", recursively: true)!
+        node.scale = SCNVector3(0.1, 0.1, 0.1)
+    }
+    
+    func getNode() -> SCNNode {
+        return node
     }
 }
